@@ -1,0 +1,46 @@
+{
+  "PROCESSING_INFO": {
+    "raw_folder": "./raw/",
+    "processed_folder": "./processed/",
+    "raw_columns": ["Ad set ID", "Day", "Time of day (ad account time zone)", "Amount spent (EUR)", "Impressions", "Clicks (all)", "Website purchases", "Leads"],
+    "new_columns": ["ad_set", "day", "time_of_day", "spend", "impressions", "clicks", "purchases", "leads"],
+    "init_fields": ["ad_set", "day", "hour", "spend", "impressions", "clicks", "purchases", "leads"],
+    "cumm_fields": ["spend", "purchases", "revenue", "leads", "impressions", "clicks", "cpl", "cpm", "ctr"],
+    "incr_fields": ["cpl", "cpm", "ctr", "spend", "purchases", "spend_cumm", "purchases_cumm", "roas_sub", "cpl_sub", "cpm_sub", "ctr_sub", "cpl_cumm", "cpm_cumm", "ctr_cumm"],
+    "ltv": 0,
+    "days": 3
+  },
+  "TRAIN_INFO": {
+    "train_fields": ["day_num", "hour", "roas_sub",  "cpl_incr", "cpm_incr", "ctr_incr", "purchases_incr", "purchases_cumm_incr", "roas_sub_incr", "cpl_sub_incr", "cpm_sub_incr", "ctr_sub_incr", "cpl_cumm_incr", "cpm_cumm_incr", "ctr_cumm_incr"],
+    "label_field": "success",
+    "groups": "ad_set",
+    "sort_by": ["ad_set", "day_num", "hour"],
+    "val_ratio": 0.15,
+    "test_ratio": 0.15
+  },
+  "MODEL_INFO": {
+    "hyperparameters": {
+      "K-Nearest Neighbors": {
+        "metric": ["euclidean", "minkowski"]
+      },
+      "Logistic Regression": {
+        "penalty": ["l1", "l2"],
+        "C": [0.01, 0.1, 1.0, 10.0],
+        "solver": ["liblinear", "lbfgs", "sag", "saga"]
+      },
+      "Random Forest": {
+        "n_estimators": [10, 50, 100, 200],
+        "max_depth": [5, 10, 20],
+        "min_samples_split": [2, 5, 10],
+        "min_samples_leaf": [1, 2, 4]
+      },
+      "Gradient Boosting": {
+        "n_estimators": [50, 100, 200],
+        "learning_rate": [0.01, 0.1, 0.2],
+        "max_depth": [3, 5, 7],
+        "min_samples_split": [2, 5, 10]
+      }
+    },
+    "save": true
+  }
+}
