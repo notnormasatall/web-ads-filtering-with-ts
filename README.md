@@ -1,1 +1,1 @@
-# web-ads-filtering-with-ts
+# Application of Thompson Sampling In Web Advertisement Filtering
