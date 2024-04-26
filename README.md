@@ -46,4 +46,3 @@ To set up the project locally, follow these steps:
 
 For any inquiries or further discussion regarding the project, feel free to reach out through the repository's Issues section or directly via email: taras.rodzin@gmail.com
 
-This wiki serves as a guide to understanding and interacting with the project on Thompson Sampling applied to web advertisement filtering. For a more detailed understanding, refer to the notebooks and code within the repository.
